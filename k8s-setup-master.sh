@@ -38,6 +38,15 @@ echo 'source <(kubectl completion bash)' >>~/.bashrc
 #source /usr/share/bash-completion/bash_completion
 kubectl completion bash >/etc/bash_completion.d/kubectl
 
+
+
+#load a couple of necessary modules 
+sudo tee /etc/modules-load.d/containerd.conf <<EOF
+br_netfilter
+overlay
+EOF
+
+
 # Set iptables bridging
 cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
 net.bridge.bridge-nf-call-ip6tables = 1
@@ -47,9 +56,6 @@ sudo echo '1' > /proc/sys/net/ipv4/ip_forward
 sudo sysctl --system
 
 
-#load a couple of necessary modules 
-sudo modprobe overlay
-sudo modprobe br_netfilter
 #disable swaping
 #sed 's/#   /swap.*/#swap.img/' /etc/fstab
 #sudo swapoff -a

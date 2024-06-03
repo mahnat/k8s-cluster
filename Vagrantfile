@@ -14,6 +14,7 @@ Vagrant.configure("2") do |config|
   w.vm.provision "shell", inline: <<-SHELL
     apt-get update
     apt-get install -y git wget vim curl
+    sudo reboot
    SHELL
   end
 
@@ -31,7 +32,8 @@ Vagrant.configure("2") do |config|
     end
    w.vm.provision "shell", inline: <<-SHELL
      apt-get update
-     apt-get install -y git wget vim 
+     apt-get install -y git wget vim
+     sudo reboot
    SHELL
   end 
   config.vm.box = "ubuntu/mantic64"
@@ -49,6 +51,7 @@ Vagrant.configure("2") do |config|
    w.vm.provision "shell", inline: <<-SHELL
      apt-get update
      apt-get install -y git wget vim curl
+     sudo reboot
    SHELL
   end  
   config.vm.box = "ubuntu/mantic64"
@@ -66,6 +69,7 @@ Vagrant.configure("2") do |config|
    w.vm.provision "shell", inline: <<-SHELL
      apt-get update
      apt-get install -y git wget vim curl
+     sudo reboot
    SHELL
   end  
 end
