@@ -56,7 +56,7 @@ Vagrant.configure("2") do |config|
   end  
   config.vm.box = "ubuntu/mantic64"
   config.vm.define "worker-3" do | w |
-      w.vm.hostname = "worker-2"
+      w.vm.hostname = "worker-3"
       w.vm.network "private_network", ip: "192.168.33.13"
 
       w.vm.provider "virtualbox" do |vb|
